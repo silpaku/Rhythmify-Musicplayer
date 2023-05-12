@@ -109,7 +109,7 @@ class Settings extends StatelessWidget {
                 // const Icon(Icons.share,color:colord,),
                 // const SizedBox(width: 30,),
                 IconButton(onPressed: (() {
-                  Share.share('jndkjnjk');
+                  Share.share('https://play.google.com/store/apps/details?id=com.example.rhythmify1');
                 }), icon:Icon(Icons.share,color: colord,),
                 ),
                 Text('Share',
