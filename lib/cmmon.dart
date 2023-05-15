@@ -289,18 +289,16 @@ showPlaylistOptionsadd(BuildContext context) {
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
                       ),
-                      child: TextFormField(
-                        controller: myController,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          fillColor: Colors.white10,
-                          label: Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Text(
-                              'Enter Playlist Name:',
-                              style: GoogleFonts.kadwa(
-                                  color: Colors.black, fontSize: 18),
-                            ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left:8.0),
+                        child: TextFormField(
+                          controller: myController,
+                          decoration: InputDecoration(
+                            hintText: 'Enter Playlist Name',
+                            hintStyle: TextStyle(color: Colors.black),
+                            border: InputBorder.none,
+                            
+                            
                           ),
                         ),
                       ),

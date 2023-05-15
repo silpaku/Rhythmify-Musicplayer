@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:rhythmify1/functions/dbfunctions.dart';
 import 'package:rhythmify1/models/favouritemodel.dart';
 import 'package:rhythmify1/models/songsmodel.dart';
-import 'package:rhythmify1/widgets/favorite.dart';
+
 
 addfavour(int index) async {
   final box = SongBox.getInstance();

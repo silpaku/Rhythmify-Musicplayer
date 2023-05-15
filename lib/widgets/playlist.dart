@@ -8,17 +8,18 @@ import 'package:rhythmify1/colorsd.dart';
 import 'package:rhythmify1/playscreen.dart';
 import 'package:rhythmify1/models/playlistmodel.dart';
 import 'package:rhythmify1/models/songsmodel.dart';
+import 'package:rhythmify1/widgets/bootomnavigation.dart';
 
-class Playlist extends StatefulWidget {
-  Playlist({super.key, required this.index, required this.playlistname});
+class PlaylistUnique extends StatefulWidget {
+  PlaylistUnique({super.key, required this.index, required this.playlistname});
   int? index;
   String? playlistname;
 
   @override
-  State<Playlist> createState() => _PlaylistState();
+  State<PlaylistUnique> createState() => _PlaylistUniqueState();
 }
 
-class _PlaylistState extends State<Playlist> {
+class _PlaylistUniqueState extends State<PlaylistUnique> {
   final AssetsAudioPlayer player = AssetsAudioPlayer.withId('0');
   List<Audio> converted = [];
   @override
@@ -73,7 +74,19 @@ class _PlaylistState extends State<Playlist> {
                         itemBuilder: (BuildContext context, int index) {
                           return ListTile(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: ((context) =>Playscreen(cuindex: index) )));
+                              audioPlayer.open(
+                             Playlist(audios: converted, startIndex: index)
+                                  ,
+                                  showNotification: true,
+                                  headPhoneStrategy:
+                                      HeadPhoneStrategy.pauseOnUnplug,
+                                  loopMode: LoopMode.playlist);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        Playscreen(cuindex: index),
+                                  ));
                             },
                             title: Text(
                               playsong[index].songname!,
@@ -100,20 +113,14 @@ class _PlaylistState extends State<Playlist> {
                                 nullArtworkWidget: const CircleAvatar(
                                   radius: 30,
                                   backgroundImage: AssetImage('assets/p2.jpg'),
-                                // backgroundColor: Colors.black,
+                                  // backgroundColor: Colors.black,
                                 ),
                               ),
-
-                              // backgroundImage: AssetImage('assets/s6.jpg'),
                             ),
                             // leading: Image(image: AssetImage('assets/s6.jpg')),
                             trailing: PopupMenuButton<int>(
                               itemBuilder: (BuildContext context) {
                                 return [
-                                  // const PopupMenuItem(
-                                  //   value: 1,
-                                  //   child: Text('Add to favorites'),
-                                  // ),
                                   const PopupMenuItem(
                                     value: 1,
                                     child: Text('Remove'),
@@ -121,15 +128,7 @@ class _PlaylistState extends State<Playlist> {
                                 ];
                               },
                               onSelected: (int value) {
-                                // if (value == 1) {
-                                //   ScaffoldMessenger.of(context).showSnackBar(
-                                //     const SnackBar(
-                                //       content:
-                                //           Text('Added to Favorites'),
-                                //     ),
-                                //   );
-                                // }
-                                 if (value == 1) {
+                                if (value == 1) {
                                   // removing the song
                                   playsong.removeAt(index);
                                   playlistbox.putAt(
@@ -155,7 +154,10 @@ class _PlaylistState extends State<Playlist> {
                         },
                       )
                     : const Center(
-                        child: Text('NO SONGS',style: TextStyle(color:Colors.white38),),
+                        child: Text(
+                          'NO SONGS',
+                          style: TextStyle(color: Colors.white38),
+                        ),
                       );
               },
             ),

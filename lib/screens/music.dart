@@ -19,7 +19,7 @@ class _MusicState extends State<Music> {
   late List<PlaylistSongs> playlistsongs = playlistbox.values.toList();
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+   
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -113,7 +113,7 @@ class _MusicState extends State<Music> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Playlist(
+                                        builder: (context) => PlaylistUnique(
                                           index: index,
                                           playlistname:
                                               playlistsong[index].playlistname,

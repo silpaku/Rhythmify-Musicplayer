@@ -1,7 +1,6 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:rhythmify1/recentlyplayed.dart';
@@ -65,7 +64,7 @@ class _LibraryState extends State<Library> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    
 
     return Scaffold(
         appBar: AppBar(
@@ -292,7 +291,7 @@ class _LibraryState extends State<Library> {
                   ),
                 )
               : const Center(
-                  child: Text('Recently Played is Empty'),
+                  child: Text('Recently Played is Empty',style: TextStyle(color: Colors.white),),
                 );
         },
       ),
@@ -364,3 +363,8 @@ Widget buildHorizontalListViewfavour(
     ),
   );
 }
+
+
+
+
+
