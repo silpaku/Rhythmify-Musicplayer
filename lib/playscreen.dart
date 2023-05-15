@@ -10,7 +10,7 @@ import 'package:rhythmify1/models/songsmodel.dart';
 import 'addfav.dart';
 
 class Playscreen extends StatefulWidget {
-  int cuindex;
+   int cuindex;
   Playscreen({super.key, required this.cuindex});
 
   List<Songs>? songs;
@@ -96,6 +96,7 @@ class _PlayscreenState extends State<Playscreen> {
                           padding: const EdgeInsets.only(top: 18, right: 33),
                           child: Text(
                             player.getCurrentAudioTitle,
+                             overflow: TextOverflow.ellipsis,
                             // 'Pularam Neram',
                             style: GoogleFonts.kadwa(
                                 fontSize: 16, color: Colors.white),

@@ -258,6 +258,7 @@ class _LibraryState extends State<Library> {
   Widget buildHorizontalListView(List<String> data) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.17,
+      
       child: ValueListenableBuilder<Box<RecentlyplayedModel>>(
         valueListenable: box.listenable(),
         builder: (context, Box<RecentlyplayedModel> dbrecent, child) {
@@ -363,6 +364,13 @@ Widget buildHorizontalListViewfavour(
     ),
   );
 }
+
+
+
+
+
+
+
 
 
 

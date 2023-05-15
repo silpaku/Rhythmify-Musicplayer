@@ -39,7 +39,7 @@ class _PlaylistUniqueState extends State<PlaylistUnique> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    // final Size size = MediaQuery.of(context).size;
     // final double screenWidth = size.width;
     // final double screenHeight = size.height;
     final playlistbox = PlaylistSongsbox.getInstance();

@@ -29,14 +29,14 @@ class _Home1State extends State<Home1> {
   // final box = SongBox.getInstance();
   final mostbox = MostPlayedBox.getInstance();
   final box = SongBox.getInstance();
-  List<Audio> Converted_songs = [];
+  List<Audio> convertedSongs = [];
   bool isadded = true;
   @override
   void initState() {
-    List<Songs> song_database = box.values.toList();
+    List<Songs> songDatabase = box.values.toList();
 
-    for (var i in song_database) {
-      Converted_songs.add(Audio.file(i.songurl!,
+    for (var i in songDatabase) {
+      convertedSongs.add(Audio.file(i.songurl!,
           metas: Metas(
             title: i.songname,
             artist: i.artist,
@@ -45,7 +45,7 @@ class _Home1State extends State<Home1> {
     }
     audioPlayer.open(
         Playlist(
-          audios: Converted_songs,
+          audios: convertedSongs,
         ),
         showNotification: true,
         autoStart: false);
@@ -57,7 +57,7 @@ class _Home1State extends State<Home1> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -92,40 +92,6 @@ class _Home1State extends State<Home1> {
                 
                 children: [
                   const Padding(padding: EdgeInsets.only(top: 14)),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //   children: [
-                  //     Padding(
-                  //       padding: const EdgeInsets.only(left: 1),
-                  //       child: Text('Recently Played',
-                  //           style: GoogleFonts.kadwa(
-                  //               fontSize: 14,
-                  //               fontWeight: FontWeight.bold,
-                  //               color: colord)),
-                  //     ),
-                  //     const SizedBox(
-                  //       width: 25,
-                  //     ),
-                  //     GestureDetector(
-                  //       onTap: () {
-                  //         Navigator.push(
-                  //             context,
-                  //             MaterialPageRoute(
-                  //               builder: (context) => const Recently(),
-                  //             ));
-                  //       },
-                  //       child: Text('See All',
-                  //           style: GoogleFonts.kadwa(
-                  //               fontSize: 14,
-                  //               fontWeight: FontWeight.bold,
-                  //               color: Colors.white)),
-                  //     ),
-                  //   ],
-                  // ),
-                  // SizedBox(
-                  //   height: screenHeight * 0.2,
-                  //   child: buildHorizontalListView1(assetPaths, titles),
-                  // ),
                   Column(children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -196,7 +162,7 @@ class _Home1State extends State<Home1> {
                                 onTap: () {
                                   audioPlayer.open(
                                     Playlist(
-                                        audios: Converted_songs,
+                                        audios: convertedSongs,
                                         startIndex: index),
                                     headPhoneStrategy: HeadPhoneStrategy
                                         .pauseOnUnplugPlayOnPlug,

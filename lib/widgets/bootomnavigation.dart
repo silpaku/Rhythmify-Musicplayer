@@ -126,6 +126,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10.0, right: 10),
                           child: Row(
+                            
                             children: [
                               QueryArtworkWidget(
                                 quality: 100,
@@ -152,7 +153,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   SizedBox(
                                     width: 100,
@@ -189,10 +190,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
                                             playerDoneMini = true;
                                           }
                                         }),
-                                        icon: const Icon(
-                                          Icons.skip_previous_outlined,
-                                          color: Colors.black,
-                                          size: 30,
+                                        icon: const Padding(
+                                          
+                                          padding: EdgeInsets.only(left:23.0),
+                                          child: Icon(
+                                            Icons.skip_previous_outlined,
+                                            color: Colors.black,
+                                            size: 30,
+                                          ),
                                         ));
                                   })),
                               PlayerBuilder.isPlaying(
@@ -202,34 +207,40 @@ class _BottomNavigationState extends State<BottomNavigation> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Container(
-                                          width: 35,
-                                          height: 35,
-                                          decoration: BoxDecoration(
-                                            color: Colors.black,
-                                            borderRadius:
-                                                BorderRadius.circular(30),
-                                          ),
-                                          child: IconButton(
-                                            onPressed: () {
-                                              audioPlayer.playOrPause();
-                                              setState(
-                                                () {
-                                                  isPlaying = !isPlaying;
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 25),
+                                          child: Container(
+                                            width: 35,
+                                            height: 35,
+                                            decoration: BoxDecoration(
+                                              color: Colors.black,
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(left: 0),
+                                              child: IconButton(
+                                                onPressed: () {
+                                                  audioPlayer.playOrPause();
+                                                  setState(
+                                                    () {
+                                                      isPlaying = !isPlaying;
+                                                    },
+                                                  );
                                                 },
-                                              );
-                                            },
-                                            icon: (isPlaying)
-                                                ? const Icon(
-                                                    Icons.pause,
-                                                    color: Colors.white,
-                                                    size: 19,
-                                                  )
-                                                : const Icon(
-                                                    Icons.play_arrow,
-                                                    color: Colors.white,
-                                                    size: 19,
-                                                  ),
+                                                icon: (isPlaying)
+                                                    ? const Icon(
+                                                        Icons.pause,
+                                                        color: Colors.white,
+                                                        size: 19,
+                                                      )
+                                                    : const Icon(
+                                                        Icons.play_arrow,
+                                                        color: Colors.white,
+                                                        size: 19,
+                                                      ),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -244,10 +255,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
                                     playerDoneMini = true;
                                   }
                                 },
-                                icon: const Icon(
-                                  Icons.skip_next_outlined,
-                                  color: Colors.black,
-                                  size: 30,
+                                icon: const Padding(
+                                  padding: EdgeInsets.only(left: 10),
+                                  child: Icon(
+                                    Icons.skip_next_outlined,
+                                    color: Colors.black,
+                                    size: 30,
+                                  ),
                                 ),
                               ),
                             ],
